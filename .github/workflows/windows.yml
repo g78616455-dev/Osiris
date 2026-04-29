@@ -45,3 +45,9 @@ jobs:
       run: ctest -R ^Unit --test-dir build --output-on-failure --no-tests=error --schedule-random -j $env:NUMBER_OF_PROCESSORS
     - name: run functional tests
       run: ctest -R ^Functional --test-dir build --output-on-failure --no-tests=error --schedule-random -j $env:NUMBER_OF_PROCESSORS
+
+- name: Upload Osiris
+        uses: actions/upload-artifact@v4
+        with:
+          name: Osiris-Build
+          path: build/Source/Osiris.dll
